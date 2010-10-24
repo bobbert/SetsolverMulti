@@ -1,0 +1,27 @@
+<p>
+  <b><%= @game.listing %>  (<%= @game.player_names %>)</b>
+</p>
+
+<% if @game.active? %>
+  <p><b>Game started:</b> <%= h @game.started_at %> </p>
+  <p id="buttons">
+    <%= link_to 'Continue Playing', play_path(@game), :class => "mock-fb-button" %>
+    <%= link_to 'Back', games_path, :class => "mock-fb-button" %>
+  </p>
+  <%= render :partial => 'sets_selected' %>
+<% elsif !(@game.started?) %>
+  <p>Game not yet started. Press the "Start Game" button to start playing:</p>
+  <p>
+    <% form_tag :action => 'play', :id => @game do %>
+      <div>
+	<%= submit_tag 'Start Playing!', :class => "fb-button" %>
+      </div>
+    <% end %>
+  </p>
+  <p id="buttons">
+    <%= link_to 'Change Settings', edit_game_path(@game), :class => "mock-fb-button" %>
+    <%= link_to 'Back', games_path, :class => "mock-fb-button" %>
+  </p>
+<% end %>
+
+

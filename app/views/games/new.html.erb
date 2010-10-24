@@ -1,0 +1,14 @@
+<%= mock_fb_tabs(:new_game) %>
+
+<% form_for(@game) do |f| %>
+  <p>
+    <b>Enter a name for your game:</b>
+    <%= f.text_field :name, :value => default_game_name %>
+  </p>
+
+  <p>
+    <%= f.submit 'Create New Game', :class => "fb-button" %>
+  </p>
+<% end %>
+
+

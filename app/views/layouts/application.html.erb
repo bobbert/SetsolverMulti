@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <title><%= "#{@user.name}'s " if @user %>Setsolver games</title>
+  <%= stylesheet_link_tag "setsolver-fb" %>
+  <%= javascript_include_tag "jquery.min.js" %>
+  <%= javascript_include_tag "jquery.query.js" %>
+  <%= javascript_include_tag "setsolver.js" %>
+
+<%= yield :html_head %>
+
+</head>
+
+<%= token_tag %>
+
+<body class="setsolver fbbody">
+<div id="header">
+  <div id="navigation">
+    <% if current_user %>
+      <% if current_user.facebook_id %>
+	<%= fb_profile_pic current_user,:facebook_logo=>true,:height=>"24",:width=>"24"%> 
+	<%= fb_name current_user,:use_you=>false%> 
+      <% end %>
+      <%= link_to "your account",current_user%> 
+      <% if current_facebook_user%>
+	<%= fb_logout_link "logout", logout_path%> 
+      <% else %>
+	<%= link_to "logout", logout_path%>
+      <% end %>
+      <%= link_to "My Games",games_path%>
+    <% else %>
+      <%= link_to "Login", new_session_path%>
+    <% end %>
+  </div>
+</div>
+
+<% fb_connect_async_js  do %>
+  <%#= fb_connect_stream_publish( flash[:user_action_to_publish] ) if flash[:user_action_to_publish]  %>
+  <%= yield :fb_connect%>
+<% end %>
+
+<p id="notice" style="display:<%= flash[:notice] ? 'block' : 'none' %>"><%= flash[:notice] %></p>
+<p id="error" style="display:<%= flash[:error] ? 'block' : 'none' %>"><%= flash[:error] %></p>
+
+<%= yield %>
+
+</body>
+</html>

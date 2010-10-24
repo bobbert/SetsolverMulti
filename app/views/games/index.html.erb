@@ -1,0 +1,13 @@
+<%= mock_fb_tabs(:active_games) %>
+<h1><%= "#{@player.name} (#{@player.readable_skill_level})" %></h1>
+<%= "<h2>Welcome to Setsolver!  Press 'New Game' below to create a game.</h2>" unless @games.length > 0 %>
+<%= "<h2>Games waiting to start:</h2>" if @player.has_games_waiting_to_start? %>
+<% for game in @player.games_waiting_to_start %>
+    <p><%= game_desc_as_link(game) %> (<%= game.player_names %>):  <%= game_play_link(game) %>
+    </p>
+<% end %>
+<%= "<h2>Active games:</h2>" if @player.has_games_active_and_waiting_to_start? %>
+<% for game in @player.active_games %>
+    <p><%= game_desc_as_link(game) %> (<%= game.player_names %>):  <%= game_play_link(game) %>
+    </p>
+<% end %>

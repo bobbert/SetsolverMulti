@@ -1,0 +1,329 @@
+body {
+  font-family: "Tahoma", "MS Sans Serif", "Microsoft Sans Serif", "MS Serif",sans-serif;
+  font-size: 10pt;
+  margin: 0px;
+  padding: 0px;
+  text-align: left; }
+
+h2, h3, h4, h5, h6 {
+  color: #333;
+  margin: 0px;
+  padding: 0px; }
+
+h1 { 
+  font-size: 14px;
+  margin-left: 15px;
+  color: #3b5998;
+  padding: 0px; }
+h2, h3 { 
+  font-size: 13px; }
+h4, h5 { 
+  font-size: 11px; }
+h6 { 
+  font-size: 10px; }
+
+p {
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: 11px;
+  text-align: left; }
+
+a {
+  color: #3b5998;
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: underline; }
+
+#buttons {
+  margin-left:30px;
+  padding-top:10px;
+  text-align:left;
+}
+
+#buttons input:button {
+  margin:0 10px;
+}
+
+.sets-selected {
+  width:450px;
+  text-align:center;
+  margin:30px 0 10px 0;
+  border:1px dotted gray;
+}
+
+== [[Image:Headline text]][[Image:[[Media:Example.jpg]]]] ==
+
+img {
+  border: 0px; }
+
+select {
+  border:1px solid #BDC7D8;
+  font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+  font-size:11px;
+  padding:2px;
+}
+
+td,
+td.label {
+  font-size: 11px;
+  text-align: left; }
+
+/* Default Facebook CSS */ 
+.fbbody  
+{  
+    font-family: "lucida grande" ,tahoma,verdana,arial,sans-serif;  
+    font-size: 11px;  
+    color: #333333;  
+}  
+/* Default Anchor Style */  
+.fbbody a  
+{  
+    color: #3b5998;  
+    outline-style: none;  
+    text-decoration: none;  
+    font-size: 11px;  
+    font-weight: bold;  
+}  
+.fbbody a:hover  
+{  
+    text-decoration: underline;  
+}  
+/* Facebook Box Styles */  
+.fbgreybox  
+{  
+    background-color: #f7f7f7;  
+    border: 1px solid #cccccc;  
+    color: #333333;  
+    padding: 10px;  
+    font-size: 13px;  
+    font-weight: bold;  
+}  
+.fbbluebox  
+{  
+    background-color: #eceff6;  
+    border: 1px solid #d4dae8;  
+    color: #333333;  
+    padding: 10px;  
+    font-size: 13px;  
+    font-weight: bold;  
+}  
+.fbinfobox, #notice
+{  
+    background-color: #fff9d7;  
+    border: 1px solid #e2c822;  
+    color: #333333;  
+    padding: 10px;  
+    font-size: 13px;  
+    font-weight: bold;  
+}  
+.fberrorbox, #error
+{  
+    background-color: #ffebe8;  
+    border: 1px solid #dd3c10;  
+    color: #333333;  
+    padding: 10px;  
+    font-size: 13px;  
+    font-weight: bold;  
+}  
+/* Content Divider on White Background */  
+.fbcontentdivider  
+{  
+    margin-top: 15px;  
+    margin-bottom: 15px;  
+    width: 520px;  
+    height: 1px;  
+    background-color: #d8dfea;  
+}  
+
+/* RWP: My Facebook mock-up CSS */
+.fb-button {
+  background-color:#3B5998;
+  border-color:#D8DFEA #0E1F5B #0E1F5B #D8DFEA;
+  border-style:solid;
+  border-width:1px;
+  color:#FFFFFF;
+  font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+  font-size:11px;
+  margin:0 2px;
+  padding:2px 18px;
+}
+a.mock-fb-button {
+  background-color:#3B5998;
+  border-color:#D8DFEA #0E1F5B #0E1F5B #D8DFEA;
+  border-style:solid;
+  border-width:1px;
+  color:#FFFFFF;
+  font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+  font-size:11px;
+  margin:0 2px;
+  padding:2px 18px;
+}
+a.mock-fb-button:hover {
+  text-decoration:none;
+}
+
+.wbr { display: block; float:left; }
+
+.aural {
+  width: 0; height: 0;
+  display: block;
+  margin-left: -5000px;
+  overflow: hidden;
+}
+
+.standard_message {
+  padding:10px;
+}
+
+.standard_message.no_padding {
+  padding:0;
+}
+
+.standard_message.shorten {
+  padding-bottom:0;
+}
+
+.standard_message.has_padding {
+  padding:10px;
+}
+
+.created {
+  margin: 0 20px 20px;
+}
+.status {
+  border-color:#e2c822;
+  background: #fff9d7;
+}
+
+.status a {
+  color: #3b5998;
+  text-decoration: none;
+}
+
+.page_top_notice {
+  color: #444;
+  border-bottom: solid 1px #e2c822;
+  padding: 5px 20px 4px;
+  background: #fff9d7;
+}
+
+.explanation_note {
+  border-color:#bdc7d8;
+  background:#fff;
+}
+
+.explanation_note h1 {
+  font-size:11px;
+}
+
+.pipe {
+  color: gray;
+  padding: 0px 3px; }
+
+.column {
+  float: left; }
+
+.center {
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.editor_title {
+  background: #f7f7f7;
+  padding-bottom: 5px;
+}
+
+.standard_title {
+  padding-bottom: 5px;
+}
+
+.page_title {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 10px 5px;
+  margin: 0px 10px;
+}
+
+.standard_title .page_title {
+  border-bottom: none;
+}
+
+.needs_translated {  /* pgh 4ever */
+  background: #85b84d;
+}
+
+.FB_name {
+  color:#3b5998 !important;
+}
+.FB_link {
+  color:#3b5998 !important;
+}
+
+/* Facebook Tab Style */  
+.clearfix:after { content: "."; display: block; clear: both; visibility: hidden;
+line-height: 0; height: 0; }
+.clearfix { display: inline-block; }
+html[xmlns] .clearfix { display: block; }
+* html .clearfix { height: 1%; }
+
+.fb-tabs {
+    padding: 0px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #898989;
+}
+.fb-tabs .left_tabs { float: left; padding-left: 10px; }
+.fb-tabs .right_tabs { float: right; padding-right: 10px; }
+.fb-tabitems {
+display: inline;
+list-style: none;
+margin: 0;
+padding: 0;
+text-align: center;
+}
+.fb-tabitems li {
+    list-style:none;
+    float:left;
+    background: #f1f1f1 url(http://www.facebook.com/images/componen … _gloss.gif) top left repeat-x;
+    margin-top: 0;
+    margin-right: 1px;
+    margin-bottom: -1px;
+    margin-left: 1px;
+    padding-top: 2px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+}
+.fb-tabitems li a {
+    border: 1px solid #898989;
+    display:block;
+    color: #333;
+    font-weight: bold;
+    padding-top: 2px;
+    padding-right: 8px;
+    padding-bottom: 2px;
+    padding-left: 9px;
+}
+.fb-tabitems li a small { font-size: 11px; font-weight: normal; }
+.fb-tabitems li a:focus { outline: 0px; }
+.fb-tabitems li.first a { border:1px solid #898989; }
+.fb-tabitems li a.selected {
+background: #6d84b4;
+border: 1px solid #3b5998;
+border-left: 1px solid #5973a9;
+border-right: 1px solid #5973a9;
+color: #fff;
+margin-left: -1px;
+
+}
+.fb-tabitems li.last a.selected {
+margin-left:-1px;
+border-left:1px solid #5973a9;
+border-right:1px solid #36538f;
+}
+.fb-tabitems li.first a.selected {
+margin: 0;
+border-left: 1px solid #36538f;
+border-right: 1px solid #5973a9;
+}
+.fb-tabitems li.first.last a.selected { border: 1px solid #36538f; }
+.fb-tabitems li a.selected:hover { text-decoration: none; }

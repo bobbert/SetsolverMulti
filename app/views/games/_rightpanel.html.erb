@@ -1,0 +1,27 @@
+<%= error_messages_for 'game' %>
+<!--[form:game]-->
+
+<div id="right_panel" class="right-panel">
+  <div id="score_panel" class="score-panel">
+    <h1>Game Score</h1>
+    <ul id="score_listing" class="score-listing">
+    <% @game.scores.each do |score| %>
+      <li><%= fb_profile_pic @user %>
+          <%= fb_name @user, :possessive => false, :useyou => false, :capitalize => true %>: 
+          <span id="gamescore_<%= score.player.id %>"><%= score.points %></span></li>
+    <% end %>
+    </ul>
+  </div>
+  <div id="activity_panel" class="activity-panel">
+    <h1>Game Activity</h1>
+    <ul id="set_records" class="set-records">
+    <% @game.sets.each do |set| %>
+      <li><%= render_set_found_text(set) %></li>
+    <% end %>
+    <% if @game.selection_count == 0 %>
+      <li class="dummy-first-node"><%= render_set_found_text(nil) %></li>
+    <% end %>
+    </ul>
+  </div>
+</div>
+

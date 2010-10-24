@@ -1,0 +1,18 @@
+SetsolverMulti
+--------------
+
+I've already created a single-player Set game Facebook application using the
+Facebooker library -- now it's time for me to create the multi-player game 
+I always wanted to create with Facebooker2.
+
+If you wish to run this app locally, all you need to do is create a new 
+config/facebooker.yml file and add the following:
+
+development:
+  app_id: <facebook_app_id>
+  secret: <facebook_secret_key>
+
+(same for production and test)
+
+Further information on this and everything else about Facebooker2 can be
+found at http://github.com/mmangino/facebooker2/.
