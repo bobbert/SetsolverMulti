@@ -6,7 +6,5 @@
 
 *~
 log/*
-config/db_passwd.yml
-config/fb_passwd.yml
-config/database.yml
+
 

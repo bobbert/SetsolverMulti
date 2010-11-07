@@ -15,6 +15,13 @@ class SessionsController < ApplicationController
       flash[:error] = "Unable to log you in"
       render :action=>"new"
     end
+    if @user
+      logger.error "[LOGIN] >>> #{@user.id}"
+    end
+    if current_facebook_user
+      logger.error "[FB_LOGIN] >>> #{current_facebook_user.id}"
+      find_friends
+    end
   end
   
   def destroy
@@ -35,6 +42,25 @@ class SessionsController < ApplicationController
         end
       end
     end
+  end
+  
+  # finds Facebook friends
+  def find_friends
+    if current_facebook_user && @user
+      client = current_facebook_client
+      @friends = Mogli::User.find("#{current_facebook_user.id}/friends", client) unless (client.blank?)
+      friend_ids = @friends.map {|f| f.id }
+      logger.error "[FRIENDS_PRE] >>> " + "#{friend_ids.join(", ")}"
+      @friends_with_app = User.fb_friends_with_app_installed(@friends)
+      friends_with_app_ids = @friends_with_app.map {|f| f.id }
+      logger.error "[FRIENDS_WITH_APP] >>> " + "#{friends_with_app_ids.join(", ")}"
+      return @friends_with_app
+    end
+  end
+  
+  def create_friends_session
+    fr = User.find_friends
+    session[:friends] = "|#{fb_friends_with_app_installed(fr).join('|')}|"
   end
     
 end
