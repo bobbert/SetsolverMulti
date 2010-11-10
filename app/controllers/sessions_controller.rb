@@ -41,7 +41,7 @@ class SessionsController < ApplicationController
           @user.update_attribute(:facebook_id,current_facebook_user.id) if @user
         end
       end
-    end
+    end 
   end
   
   # finds Facebook friends
@@ -51,16 +51,10 @@ class SessionsController < ApplicationController
       @friends = Mogli::User.find("#{current_facebook_user.id}/friends", client) unless (client.blank?)
       friend_ids = @friends.map {|f| f.id }
       logger.error "[FRIENDS_PRE] >>> " + "#{friend_ids.join(", ")}"
-      @friends_with_app = User.fb_friends_with_app_installed(@friends)
-      friends_with_app_ids = @friends_with_app.map {|f| f.id }
-      logger.error "[FRIENDS_WITH_APP] >>> " + "#{friends_with_app_ids.join(", ")}"
-      return @friends_with_app
+      @new_friends = @user.add_new_fb_friends(@friends)
+      logger.error "[NEW_FRIENDS_WITH_APP] >>> " + "#{friends_with_app_ids.join(", ")}"
+      return @new_friends.length
     end
   end
   
-  def create_friends_session
-    fr = User.find_friends
-    session[:friends] = "|#{fb_friends_with_app_installed(fr).join('|')}|"
-  end
-    
 end

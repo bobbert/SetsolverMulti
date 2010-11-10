@@ -116,7 +116,7 @@ class GamesController < ApplicationController
   end
   
   def friends
-    @friends = @current_user.find_setsolver_fb_friends
+    @friends = @current_user.friends
     respond_to do |format|
       format.html {  }
       format.xml  { head :ok }

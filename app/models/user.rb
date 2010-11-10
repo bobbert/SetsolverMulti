@@ -2,16 +2,26 @@ class User < ActiveRecord::Base
   has_one :player
   after_create :new_player
 
+  has_many :friend_relationships, :dependent => :destroy
+  has_many :friends, :through => :friend_relationships, :source => :friend
+
   validates_presence_of :email
   validates_uniqueness_of :email
   
-  
-  # returns a list of all Facebook friends found in database
-  def self.fb_friends_with_app_installed(fb_friends)
-    fb_friend_ids = fb_friends.map {|f| f.id }
-    fb_friend_with_app_ids = fb_friend_ids & User.find(:all).map {|u| u.facebook_id }
-    return fb_friend_with_app_ids.map {|f_id| User.find_by_facebook_id(f_id) }
+  # adds new Facebook friends to friend_relationships association
+  def add_new_fb_friends(fb_friends)
+    fb_new_friends_with_app = get_new_fb_friends_from_list(fb_friends)
+    fb_new_friends_with_app.each do |fb_friend|
+      self.friends << fb_friend
+    end
+    self.save! && fb_new_friends_with_app
   end  
+  
+  def get_new_fb_friends_from_list(fb_friends)
+    fb_friend_ids = (fb_friends.map &:id) 
+    new_fb_friend_ids_with_app = (fb_friend_ids & (User.find(:all).map &:facebook_id)) - (self.friends.map &:facebook_id)
+    return new_fb_friend_ids_with_app.map {|fb_id| User.find_by_facebook_id fb_id }
+  end
   
   def connected?
     !facebook_id.blank?
@@ -20,6 +30,20 @@ class User < ActiveRecord::Base
   # create new Player object immediately after creating user
   def new_player
     self.player = Player.new
+  end
+  
+  # get Mogli user object for accessing Facebook data
+  def get_mogli_user
+    Mogli::User.find(self.facebook_id)
+  end
+  
+  MogliMethods = [:image_url]
+  
+  # create local wrapper methods for Mogli method calls -- RWP: create 1-arg methods that take user object
+  MogliMethods.each do |mogli_method_name|
+    define_method(mogli_method_name) do 
+      get_mogli_user.send(mogli_method_name)
+    end    
   end
   
 end

@@ -1,8 +1,23 @@
 <%= mock_fb_tabs(:friends) %>
 <h1><%= "#{@player.name}'s Friends" %></h1>
 
-<% @friends.each do |friend| %>
-<div class="fb-friend-data">
-  <%= mock_fb_profile_pic(friend) %><h2><%= "#{friend.player.full_profile}" %></h2>
-</div>
+<% current_user.friends.each do |friend| %>
+  <div class="fb-friend-data">
+  	<%= image_tag(friend.image_url) %><h2><%= "#{friend.player.full_profile}" %></h2>
+  </div>
 <% end %>
+
+<div style="text-align:center;width:900px;">
+<fb:serverFbml>
+        <script type="text/fbml">
+            <fb:fbml>
+                <fb:request-form
+                    method='POST'
+                    type='New Game'
+                    content="<%= current_user.name %> challenges you to a game of Set!  Click here to play!">
+                     <fb:multi-friend-selector width=650px border_color="#8496ba" actiontext="Invite Friends to play you in Setsolver">
+                </fb:request-form>
+            </fb:fbml>
+        </script>
+</fb:serverFbml>
+</div>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101024042019) do
+ActiveRecord::Schema.define(:version => 20101110011726) do
 
   create_table "cardfaces", :force => true do |t|
     t.integer "number"
@@ -49,6 +49,13 @@ ActiveRecord::Schema.define(:version => 20101024042019) do
   end
 
   add_index "facebook_templates", ["template_name"], :name => "index_facebook_templates_on_template_name", :unique => true
+
+  create_table "friend_relationships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "games", :force => true do |t|
     t.integer  "selection_count",                  :default => 0
