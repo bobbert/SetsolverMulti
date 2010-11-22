@@ -49,10 +49,11 @@ class SessionsController < ApplicationController
     if current_facebook_user && @user
       client = current_facebook_client
       @friends = Mogli::User.find("#{current_facebook_user.id}/friends", client) unless (client.blank?)
-      friend_ids = @friends.map {|f| f.id }
+      friend_ids = @friends.map &:id
       logger.error "[FRIENDS_PRE] >>> " + "#{friend_ids.join(", ")}"
       @new_friends = @user.add_new_fb_friends(@friends)
-      logger.error "[NEW_FRIENDS_WITH_APP] >>> " + "#{friends_with_app_ids.join(", ")}"
+      new_friend_ids = @new_friends.map  &:id
+      logger.error "[NEW_FRIENDS_WITH_APP] >>> " + "#{new_friend_ids.join(", ")}"
       return @new_friends.length
     end
   end
