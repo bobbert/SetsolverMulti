@@ -8,20 +8,12 @@ ENV["RAILS_ENV"] ||= "cucumber"
 require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')
 
 require 'cucumber/formatter/unicode' # Remove this line if you don't want Cucumber Unicode support
-
-# RWP 7/16/10: replacing default Rails world with Facebooker world
-# require 'cucumber/rails/world'
-require 'facebooker/rails/cucumber'
-
+require 'cucumber/rails/world'
 require 'cucumber/rails/active_record'
 require 'cucumber/web/tableish'
 
 require 'webrat'
 require 'webrat/core/matchers'
-require 'factory_girl'
-Factory.find_definitions
-require 'facebooker/session'
-require 'facebooker/mock/session'
 
 Webrat.configure do |config|
   config.mode = :rails

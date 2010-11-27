@@ -5,15 +5,11 @@ module NavigationHelpers
   #
   # step definition in web_steps.rb
   #
-  
-  
   def path_to(page_name)
     case page_name
 
     when /the home\s?page/
-      'http://sharp-window-53.heroku.com/'
-    when /the list of games/
-      'http://sharp-window-53.heroku.com/games'
+      '/'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

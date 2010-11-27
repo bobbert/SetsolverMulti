@@ -12,10 +12,13 @@ development:
   app_id: 100486100020562
   secret: 23390490bf0ad3284ed85ac20bf78045
 
+test:
+  app_id: 100486100020562
+  secret: 23390490bf0ad3284ed85ac20bf78045
+
 production:
   app_id: 100486100020562
   secret: 23390490bf0ad3284ed85ac20bf78045
 
-test:
-  app_id: 100486100020562
-  secret: 23390490bf0ad3284ed85ac20bf78045
+cucumber:
+  <<: *test
