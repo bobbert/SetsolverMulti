@@ -10,7 +10,7 @@ describe Card do
       @invalid_card = Factory(:first_card)
       @invalid_card.faceup_position = 1
       @invalid_card.save
-      @invalid_card.valid?.should_not be
+      @invalid_card.should_not be_valid
     end
   end
   
@@ -19,7 +19,7 @@ describe Card do
       @invalid_card = Factory(:first_card)
       @invalid_card.facedown_position = nil
       @invalid_card.save
-      @invalid_card.valid?.should_not be
+      @invalid_card.should_not be_valid
     end
   end
   
@@ -30,7 +30,7 @@ describe Card do
     end
 
     it "should all have unique names" do
-      @cardnames = @all_cards.map {|c| c.name}
+      @cardnames = @all_cards.map &:name
       @cardnames.should == @cardnames.uniq
     end
 

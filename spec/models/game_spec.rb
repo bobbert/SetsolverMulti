@@ -104,7 +104,7 @@ describe Game do
           last_bad_set = indices.map {|i| @game.field[i] }
           !(@sets_found.include? last_bad_set)  
         end
-        @game.make_set_selection( @player, *last_bad_set ).should_not be
+        @game.make_set_selection( @player, *last_bad_set ).should == false
       end
 
       it "should increment the score after making a correct Set selection" do
