@@ -4,6 +4,7 @@ Feature: Manage Games
   I want to create and manage new games
 
   Scenario: Successful Login
-    Given I am logged in as a Facebook user
-    When I go to the list of games
+    Given I am a registered Facebook user
+    When I login with valid credentials
+    And I go to the list of games
     Then I should see my name
