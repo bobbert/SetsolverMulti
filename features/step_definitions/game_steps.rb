@@ -5,7 +5,7 @@ end
 When /^I login with valid credentials$/ do
   Facebooker2.load_facebooker_yaml
   When "I go to the login page"
-  fill_in('Email', :with => @current_user.email)
+  fill_in('email', :with => @current_user.email)
   click_button("Log Me In")
 end
 

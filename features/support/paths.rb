@@ -12,6 +12,8 @@ module NavigationHelpers
       '/'
     when /the login page/
       new_session_path
+    when /the list of games/
+      games_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
