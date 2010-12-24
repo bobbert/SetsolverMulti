@@ -45,7 +45,7 @@ module GamesHelper
     if gm.waiting_to_start?
       link_to("Start playing!", play_path(gm), :class => 'mock-fb-button')
     elsif gm.active?
-      link_to("Play", play_path(gm), :class => 'mock-fb-button')
+      link_to("Continue playing", play_path(gm), :class => 'mock-fb-button')
     elsif gm.finished?
       link_to("Game Archive", archive_path(gm), :class => 'mock-fb-button')
     else
@@ -60,7 +60,7 @@ module GamesHelper
 
   def render_set_found_text( set )
     "<h5>#{formatted_date(set.created_at) if set}</h5> " + 
-    "<span class=\"setlisting-name\">#{set.score.player.name if set}</span> found " + 
+    "<span class=\"setlisting-name\">#{set.score.player.name if set}</span> found a set: " + 
     "<p class=\"setlisting\">#{render_threecard_set(set)}</p> " + 
     "in <span class=\"setlisting-time\">#{set.seconds_to_find if set}</span> seconds"
   end

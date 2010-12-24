@@ -14,6 +14,8 @@ module NavigationHelpers
       new_session_path
     when /the list of games/
       games_path
+    when /the new game page/
+      new_game_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

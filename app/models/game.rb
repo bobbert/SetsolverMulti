@@ -229,6 +229,15 @@ class Game < ActiveRecord::Base
     end
     found_sets
   end
+  
+  # returns field position (as zero-position index) of each card within every three-card Set in the gamefield
+  def find_set_card_positions
+    card_positions = {}
+    field.each_with_index {|card, indx| card_positions[card.id] = indx }
+    find_sets.map do |threecardset|
+      threecardset.map {|card| card_positions[card.id] }
+    end
+  end
 
   # the set-finding algorithm: given three card positions (within face-up array),
   # get the cardfaces and then iterate through each attribute (color, shading,

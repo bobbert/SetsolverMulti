@@ -8,8 +8,7 @@
 <% end %>
 <%= "<h2>Active games:</h2>" if @player.has_games_active_and_waiting_to_start? %>
 <% for game in @player.active_games %>
-    <p><%= game_desc_as_link(game) %> (<%= game.player_names %>):  <%= game_play_link(game) %>
-    </p>
+    <p><%= game_desc_as_link(game) %> (<%= game.player_names %>):  <%= game_play_link(game) %></p>
 <% end %>
 
 <p id="buttons">
