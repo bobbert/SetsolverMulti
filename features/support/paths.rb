@@ -16,6 +16,8 @@ module NavigationHelpers
       games_path
     when /the new game page/
       new_game_path
+    when /the archives page/
+      archive_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

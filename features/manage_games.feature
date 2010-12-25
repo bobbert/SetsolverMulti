@@ -31,6 +31,7 @@ Feature: Manage Games
     And I should see "found a set:" within "div#activity_panel ul#set_records li"
     And I should not see "The three cards you selected are not a set" within "p#notice"
     And I should see a game field with at least 12 unselected Set cards
+    And my score should be 1
 
   Scenario: Selecting an incorrect Set
     When I create a new Setsolver game
@@ -38,3 +39,12 @@ Feature: Manage Games
     And I select three cards that are not a Set
     Then I should see "The three cards you selected are not a set" within "p#notice"
     And I should see a game field with at least 12 unselected Set cards
+    And my score should be 0
+
+  Scenario: Completing a Set game
+    When I create a new Setsolver game
+    And I follow "Start playing!"
+    And I play through an entire Set game
+    Then I should be on the archives page
+    And my score should be between 23 and 27
+
